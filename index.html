@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Niall Clarke, Head Of Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1423;
+    --surface: #161e33;
+    --surface2: #1a2340;
+    --border: #252e47;
+    --red: #e8364f;
+    --text: #ffffff;
+    --muted: #a8abb4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(900px 420px at 75% -120px, rgba(232, 54, 79, 0.07), transparent 70%),
+      radial-gradient(700px 500px at 10% 0%, rgba(64, 86, 161, 0.10), transparent 70%);
+    background-repeat: no-repeat;
+  }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+  ::selection { background: rgba(232, 54, 79, 0.35); }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13, 20, 35, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 28px;
+    height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .nav-name { font-size: 13px; font-weight: 700; white-space: nowrap; }
+  .nav-name span { color: var(--red); }
+  .nav-links { display: flex; gap: 22px; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.04em; white-space: nowrap;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ---------- Kicker ---------- */
+  .kicker {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--red);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .kicker::after { content: ""; flex: 0 0 32px; height: 1px; background: var(--red); opacity: 0.5; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 84px 0 64px; }
+  .hero h1 {
+    font-size: clamp(36px, 5.2vw, 56px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+    margin-bottom: 18px;
+  }
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 19px); font-weight: 600;
+    max-width: 620px; margin-bottom: 8px;
+  }
+  .hero-date { font-size: 13px; color: var(--muted); margin-bottom: 48px; }
+
+  /* ---------- Bento base ---------- */
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+  .tile {
+    background: linear-gradient(180deg, var(--surface2) 0%, var(--surface) 55%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .tile:hover { border-color: #34405f; transform: translateY(-2px); }
+  .s3 { grid-column: span 3; }
+  .s4 { grid-column: span 4; }
+  .s5 { grid-column: span 5; }
+  .s6 { grid-column: span 6; }
+  .s7 { grid-column: span 7; }
+  .s8 { grid-column: span 8; }
+  .s12 { grid-column: span 12; }
+
+  /* ---------- Icons ---------- */
+  .ic {
+    width: 38px; height: 38px; border-radius: 11px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(232, 54, 79, 0.10);
+    border: 1px solid rgba(232, 54, 79, 0.28);
+    color: var(--red);
+    margin-bottom: 18px;
+    flex: 0 0 38px;
+  }
+  .ic svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Hero stat tiles ---------- */
+  .stat .num {
+    font-size: clamp(34px, 3.4vw, 44px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 10px;
+  }
+  .stat.feature .num { font-size: clamp(46px, 5vw, 64px); }
+  .stat .label {
+    color: var(--red);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .stat .sub { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .stat::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--red), transparent 65%);
+    opacity: 0; transition: opacity 0.2s ease;
+  }
+  .stat:hover::before { opacity: 1; }
+  .stat.feature {
+    background:
+      radial-gradient(420px 200px at 85% -40px, rgba(232, 54, 79, 0.12), transparent 70%),
+      linear-gradient(180deg, var(--surface2) 0%, var(--surface) 55%);
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 70px 0 6px; }
+  section h2 {
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 800; letter-spacing: -0.02em; line-height: 1.15;
+    margin-bottom: 30px;
+  }
+
+  .tile h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .tile p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+  .tile p + p { margin-top: 10px; }
+  .tile strong { color: var(--text); font-weight: 700; }
+  .big {
+    font-size: clamp(30px, 3vw, 38px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 10px;
+  }
+  .big em { font-style: normal; color: var(--red); }
+
+  /* ---------- Bar rows (campaign revenue) ---------- */
+  .bars { margin-top: 20px; display: flex; flex-direction: column; gap: 13px; }
+  .bar-row { display: grid; grid-template-columns: 150px 1fr auto; gap: 14px; align-items: center; }
+  .bar-row .code { font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-row .code small { display: block; color: var(--muted); font-weight: 500; font-size: 11.5px; }
+  .bar-track { height: 6px; border-radius: 4px; background: rgba(37, 46, 71, 0.8); overflow: hidden; }
+  .bar-fill {
+    display: block; height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, #b32339, var(--red));
+    width: 0;
+    transition: width 0.9s cubic-bezier(0.25, 1, 0.4, 1) 0.15s;
+  }
+  .bar-fill.dim { background: #3a4566; }
+  .in .bar-fill { width: var(--w); }
+  .bar-row .val { font-size: 13.5px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  .bar-total {
+    margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  }
+  .bar-total .t-label { color: var(--red); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .bar-total .t-val { color: var(--red); font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .bar-total .t-val small { color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 8px; }
+
+  /* ---------- Stat chips ---------- */
+  .chips { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0 16px; }
+  .chip {
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 15px 16px 13px;
+  }
+  .chip .n { font-size: 23px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .chip .l { color: var(--muted); font-size: 11.5px; margin-top: 4px; line-height: 1.4; }
+  .chip .d { color: var(--red); font-size: 11px; font-weight: 700; margin-top: 2px; }
+  .chip.pending { border-style: dashed; }
+  .chip .p-tag {
+    display: inline-block; vertical-align: middle;
+    margin-left: 6px; padding: 2px 8px;
+    border: 1px solid var(--border); border-radius: 100px;
+    color: var(--muted);
+    font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+
+  /* ---------- Cut list ---------- */
+  .cuts { margin-top: 18px; display: flex; flex-direction: column; }
+  .cut {
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(37, 46, 71, 0.55);
+    font-size: 13.5px;
+  }
+  .cut:last-of-type { border-bottom: none; }
+  .cut .name { color: var(--muted); }
+  .cut .amt { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cut .amt::before { content: "− "; color: var(--red); }
+
+  /* ---------- Live tile ---------- */
+  .tile.live {
+    border: 1px solid rgba(232, 54, 79, 0.45);
+    box-shadow: 0 0 44px rgba(232, 54, 79, 0.10), inset 0 0 60px rgba(232, 54, 79, 0.03);
+    background:
+      radial-gradient(560px 240px at 90% -60px, rgba(232, 54, 79, 0.13), transparent 70%),
+      linear-gradient(180deg, var(--surface2) 0%, var(--surface) 55%);
+    padding: 32px;
+  }
+  .live-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(232, 54, 79, 0.12);
+    border: 1px solid rgba(232, 54, 79, 0.4);
+    color: var(--red);
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.8); } }
+  .tile.live h3 { font-size: 21px; }
+  .live-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+  .live-punch {
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 800; letter-spacing: -0.02em; line-height: 1.3;
+  }
+  .live-punch em { font-style: normal; color: var(--red); }
+  .live-stat { text-align: right; }
+  .live-stat .ls-num {
+    font-size: clamp(48px, 5.4vw, 68px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1;
+    color: var(--red);
+    font-variant-numeric: tabular-nums;
+  }
+  .live-stat .ls-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .live-stat .ls-sub { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+
+  /* ---------- Depth comparison ---------- */
+  .depth { display: flex; align-items: stretch; gap: 16px; margin: 22px 0 4px; }
+  .d-item {
+    flex: 1;
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 18px 14px 16px;
+    text-align: center;
+  }
+  .d-item.now { border-color: rgba(232, 54, 79, 0.45); }
+  .d-num {
+    font-size: clamp(30px, 3vw, 38px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  .d-item.old .d-num {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: rgba(232, 54, 79, 0.75);
+    text-decoration-thickness: 3px;
+  }
+  .d-item.now .d-num { color: var(--red); }
+  .d-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .d-item.old .d-label { color: var(--muted); }
+  .d-item.now .d-label { color: var(--red); }
+  .d-sub { color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .d-arrow {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    flex: 0 0 auto;
+  }
+  .d-arr { color: var(--red); font-size: 24px; font-weight: 800; line-height: 1; }
+  .d-delta {
+    color: var(--muted);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--border); border-radius: 100px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+
+  /* ---------- Note callout ---------- */
+  .note {
+    display: flex; align-items: flex-start; gap: 13px;
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px 17px;
+    margin-top: 4px;
+  }
+  .note svg {
+    width: 17px; height: 17px; flex: 0 0 17px; margin-top: 3px;
+    stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .note p { margin: 0; font-size: 13.5px; line-height: 1.6; }
+
+  /* ---------- Glow tile ---------- */
+  .tile.glow {
+    border: 1px solid rgba(232, 54, 79, 0.45);
+    box-shadow: 0 0 38px rgba(232, 54, 79, 0.09), inset 0 0 50px rgba(232, 54, 79, 0.03);
+    background:
+      radial-gradient(360px 180px at 85% -40px, rgba(232, 54, 79, 0.12), transparent 70%),
+      linear-gradient(180deg, var(--surface2) 0%, var(--surface) 55%);
+  }
+
+  /* ---------- Parallel connector ---------- */
+  .parallel {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 7px; padding: 0; margin: -4px 0;
+  }
+  .p-line {
+    width: 2px; height: 22px;
+    background-image: linear-gradient(180deg, var(--red) 0 55%, transparent 55% 100%);
+    background-size: 2px 7px;
+    background-repeat: repeat-y;
+    opacity: 0.75;
+    animation: flow 0.9s linear infinite;
+  }
+  @keyframes flow { to { background-position-y: 7px; } }
+  .p-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232, 54, 79, 0.10);
+    border: 1px solid rgba(232, 54, 79, 0.4);
+    color: var(--red);
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 6px 13px; border-radius: 100px;
+  }
+  .p-chip svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Perk labels ---------- */
+  .perks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .perk {
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid rgba(232, 54, 79, 0.32);
+    border-radius: 9px;
+    padding: 8px 13px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ---------- Pending badge ---------- */
+  .pend-badge {
+    display: inline-flex; align-items: center;
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 100px;
+    margin-bottom: 12px;
+  }
+
+  /* ---------- People ---------- */
+  .up-badge {
+    display: inline-flex; align-items: center;
+    background: rgba(232, 54, 79, 0.10);
+    border: 1px solid rgba(232, 54, 79, 0.4);
+    color: var(--red);
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .person { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 19px;
+    position: relative;
+    flex: 0 0 48px;
+  }
+  .avatar.up {
+    background: linear-gradient(135deg, rgba(232, 54, 79, 0.28), rgba(232, 54, 79, 0.08));
+    border: 1px solid rgba(232, 54, 79, 0.5);
+    color: var(--red);
+  }
+  .avatar.out {
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .avatar .xmark {
+    position: absolute; bottom: -3px; right: -3px;
+    width: 19px; height: 19px; border-radius: 50%;
+    background: var(--red); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800; line-height: 1;
+    border: 2px solid var(--surface);
+  }
+  .p-meta strong { display: block; font-size: 16px; line-height: 1.3; }
+  .p-meta span { color: var(--muted); font-size: 12.5px; }
+  .path { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin-top: 16px; }
+  .path .step {
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 6px 11px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .path .step.now { border-color: rgba(232, 54, 79, 0.45); color: var(--text); }
+  .path .arr { color: var(--red); font-weight: 700; }
+
+  /* ---------- Failure badge ---------- */
+  .fail-badge {
+    display: inline-flex; align-items: center;
+    background: rgba(232, 54, 79, 0.10);
+    border: 1px solid rgba(232, 54, 79, 0.4);
+    color: var(--red);
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Bot tile ---------- */
+  .bot-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 30px; align-items: center; }
+  .bot-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+  .bot-stat {
+    background: rgba(13, 20, 35, 0.6);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px 10px; text-align: center;
+  }
+  .bot-stat .n { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .bot-stat .l { color: var(--muted); font-size: 11px; margin-top: 4px; }
+  .bot-frame {
+    background: var(--bg);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 8px;
+  }
+  .bot-frame img { display: block; width: 100%; height: auto; border-radius: 9px; }
+
+  /* ---------- Strip tile (horizontal icon + text) ---------- */
+  .strip { display: flex; align-items: flex-start; gap: 18px; }
+  .strip .ic { margin-bottom: 0; margin-top: 2px; }
+  .strip h3 { margin-bottom: 6px; }
+
+  /* ---------- Commitment banner ---------- */
+  .banner {
+    grid-column: span 12;
+    background: linear-gradient(180deg, var(--surface2) 0%, var(--surface) 55%);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    border-radius: 18px;
+    padding: 32px 36px;
+  }
+  .banner .b-label {
+    color: var(--red);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .banner p { font-size: clamp(17px, 2.1vw, 20px); font-weight: 700; line-height: 1.5; color: var(--text); }
+
+  /* ---------- Editorial ---------- */
+  .editorial { max-width: 700px; }
+  .editorial p {
+    color: #c9ccd6;
+    font-size: 16.5px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+  }
+  .editorial p:last-child { margin-bottom: 0; }
+  .editorial .lede {
+    color: var(--text);
+    font-size: clamp(19px, 2.4vw, 23px);
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+  }
+  .editorial .pull {
+    border-left: 3px solid var(--red);
+    margin: 34px 0;
+    padding: 6px 0 6px 26px;
+    font-size: clamp(21px, 2.8vw, 27px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    color: var(--text);
+  }
+  .editorial .pull em { font-style: normal; color: var(--red); }
+
+  /* ---------- Footer ---------- */
+  footer { margin-top: 76px; padding: 34px 0 46px; border-top: 1px solid var(--border); }
+  footer p { color: var(--muted); font-size: 13px; text-align: center; }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .bar-fill { transition: none; width: var(--w); }
+    .live-dot { animation: none; }
+    .p-line { animation: none; }
+    .tile { transition: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 920px) {
+    .bento > * { grid-column: span 6; }
+    .stat.feature, .s12, .banner, .tile.live, .parallel { grid-column: span 12; }
+    .live-grid, .bot-grid { grid-template-columns: 1fr; gap: 20px; }
+    .live-stat { text-align: left; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 18px; }
+    .nav-inner { padding: 0 18px; }
+    .hero { padding: 56px 0 46px; }
+    section { padding: 52px 0 4px; }
+    .bento > * { grid-column: span 12; }
+    .tile { padding: 22px; }
+    .chips { grid-template-columns: 1fr 1fr; }
+    .depth { flex-direction: column; }
+    .d-arrow { flex-direction: row; }
+    .d-arr { transform: rotate(90deg); }
+    .bar-row { grid-template-columns: 96px 1fr auto; gap: 10px; }
+    .bot-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface2: #ffffff;
+      --border: #d4d7de;
+      --text: #111521;
+      --muted: #4b5160;
+    }
+    body { background: #ffffff; color: #111521; font-size: 12px; background-image: none; }
+    .nav { display: none; }
+    .hero { padding: 20px 0 24px; }
+    section { padding: 26px 0 4px; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    .tile, .banner, .chip, .bot-stat, .bot-frame {
+      background: #ffffff; box-shadow: none; break-inside: avoid;
+    }
+    .editorial p { color: #2a2f3d; }
+    .editorial .lede, .editorial .pull { color: #111521; }
+    .editorial .pull { break-inside: avoid; }
+    .tile.live { border-color: #d4d7de; }
+    .stat::before { display: none; }
+    .bar-fill { width: var(--w) !important; transition: none; }
+    .bar-fill.dim { background: #b9c0d4; }
+    .bar-track { background: #eceef3; }
+    .chip, .bot-stat, .cut .amt { color: #111521; }
+    .live-dot, .p-line { animation: none; }
+    .ic { background: #ffffff; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="nav-inner">
+    <div class="nav-name">Niall Clarke <span>/</span> Head Of Marketing</div>
+    <div class="nav-links">
+      <a href="#numbers">The Numbers</a>
+      <a href="#money-made">Revenue Generated</a>
+      <a href="#money-saved">Money Saved</a>
+      <a href="#built">Built, Not Bought</a>
+      <a href="#paid-media">Paid Media</a>
+      <a href="#h2">What I Bring</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="numbers">
+    <div class="kicker">Head Of Marketing &middot; February To June 2026</div>
+    <h1>Niall Clarke</h1>
+    <p class="hero-sub">What I made, what I saved, what I built.</p>
+    <p class="hero-date">Figures as of 10 June 2026.</p>
+
+    <div class="bento">
+      <div class="tile stat feature s6 reveal">
+        <div class="num" data-count="1.56" data-prefix="$" data-suffix="M" data-decimals="2">$1.56M</div>
+        <div class="label">Campaign Revenue</div>
+        <div class="sub">4,659 orders across 18 marketing-built campaigns since January</div>
+      </div>
+      <div class="tile stat s3 reveal">
+        <div class="num" data-count="4.23" data-prefix="$" data-suffix="M" data-decimals="2">$4.23M</div>
+        <div class="label">Total Revenue</div>
+        <div class="sub">Across the business since January</div>
+      </div>
+      <div class="tile stat s3 reveal">
+        <div class="num" data-count="37" data-suffix="%">37%</div>
+        <div class="label">Driven By Marketing-Built Campaigns</div>
+        <div class="sub">$1.56M of $4.23M from direct campaigns alone, excluding ad revenue and sales from non-promo emails</div>
+      </div>
+      <div class="tile stat s3 reveal">
+        <div class="num" data-count="39" data-prefix="+" data-suffix="%">+39%</div>
+        <div class="label">Instant Funded Revenue</div>
+        <div class="sub">$67K April to $93K May, zero engineering</div>
+      </div>
+      <div class="tile stat s3 reveal">
+        <div class="num" data-count="68" data-prefix="~&euro;" data-suffix="K">~&euro;68K</div>
+        <div class="label">Dead Spend Cut</div>
+        <div class="sub">Unprompted subscription audit, annualised</div>
+      </div>
+      <div class="tile stat s6 reveal">
+        <div class="num">25% &rarr; <em style="font-style:normal;color:var(--red)">15%</em></div>
+        <div class="label">Discount Needed To Move The DB</div>
+        <div class="sub">Record-pace sales day on 10 June at 15%, where 25% was the old floor</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MONEY MADE ============ -->
+  <section id="money-made">
+    <div class="kicker">01</div>
+    <h2>Revenue Generated</h2>
+
+    <div class="bento">
+      <div class="tile s7 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+        <h3>$1.56M From Marketing-Built Campaigns</h3>
+        <p>18 campaigns concepted, written, built and sent in-house since January. 37% of all coded revenue.</p>
+        <div class="bars">
+          <div class="bar-row"><span class="code">newme20<small>1,447 orders</small></span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><span class="val">$464,730</span></div>
+          <div class="bar-row"><span class="code">reward<small>902 orders</small></span><span class="bar-track"><span class="bar-fill" style="--w:64%"></span></span><span class="val">$297,787</span></div>
+          <div class="bar-row"><span class="code">paddy<small>397 orders</small></span><span class="bar-track"><span class="bar-fill" style="--w:44%"></span></span><span class="val">$204,345</span></div>
+          <div class="bar-row"><span class="code">march<small>459 orders</small></span><span class="bar-track"><span class="bar-fill" style="--w:29%"></span></span><span class="val">$135,456</span></div>
+          <div class="bar-row"><span class="code">unlock25<small>205 orders</small></span><span class="bar-track"><span class="bar-fill" style="--w:18%"></span></span><span class="val">$84,657</span></div>
+          <div class="bar-row"><span class="code">13 further<small>1,249 orders</small></span><span class="bar-track"><span class="bar-fill dim" style="--w:81%"></span></span><span class="val">$376,657</span></div>
+        </div>
+        <div class="bar-total">
+          <span class="t-label">Total</span>
+          <span class="t-val">$1,563,632 <small>4,659 orders</small></span>
+        </div>
+        <p style="margin-top:14px;font-size:12.5px;">Excludes $1.15M of non-coupon revenue from marketing-owned paid, email and organic.</p>
+      </div>
+
+      <div class="tile s5 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <h3>Instant Funded: Worst Product To Growth Product</h3>
+        <p>Highest margin in the book, stuck as second-worst seller. Shipped the fix as a StopChurn MVP: a free Second Chance reset, sold as insurance, not a discount. Zero engineering.</p>
+        <div class="chips">
+          <div class="chip"><div class="n">$93K</div><div class="l">May revenue</div><div class="d">from $67K in April</div></div>
+          <div class="chip"><div class="n">17-22%</div><div class="l">of challenges sold in May</div><div class="d">from 8-12% in April</div></div>
+          <div class="chip"><div class="n">31%</div><div class="l">of launch-day revenue</div><div class="d">from 12%</div></div>
+          <div class="chip"><div class="n">$27.5K</div><div class="l">record Friday</div><div class="d">record Sunday $12K</div></div>
+        </div>
+        <div class="note">
+          <svg viewBox="0 0 24 24"><path d="M10 2v7.5L4.5 20a1 1 0 0 0 .9 1.5h13.2a1 1 0 0 0 .9-1.5L14 9.5V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="7" y1="16" x2="17" y2="16"/></svg>
+          <p>Instant has a low payout ratio at 5%, making it a clear winner to push and the reset feature near costless to offer. <strong>The reset is now a popular add-on at checkout.</strong></p>
+        </div>
+      </div>
+
+      <div class="tile live s12 reveal">
+        <div class="live-badge"><span class="live-dot"></span>Live</div>
+        <div class="live-grid">
+          <div>
+            <h3>Rolex Race: The Premium Thesis Proving Itself</h3>
+            <p>Affiliate competition driving a <strong>22% uplift in referrals</strong>. Tiered prizes, not winner-takes-all, designed off cohort data so performance compounds instead of spiking and collapsing.</p>
+          </div>
+          <div class="live-stat">
+            <div class="ls-num">+22%</div>
+            <div class="ls-label">Referral Performance Uplift</div>
+            <div class="ls-sub">since launch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="parallel s12 reveal" aria-hidden="true">
+        <span class="p-line"></span>
+        <span class="p-chip"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Running In Parallel</span>
+        <span class="p-line"></span>
+      </div>
+
+      <div class="tile live s12 reveal">
+        <div class="live-badge"><span class="live-dot"></span>Live</div>
+        <div class="live-grid">
+          <div>
+            <h3>World Cup 15% Campaign</h3>
+            <p>Global 15% offer plus a free reset, applied across every affiliate code, so the competition and the offer compound. <strong>Strong uplift paired with the affiliate campaign.</strong></p>
+          </div>
+          <div class="live-punch">Today is tracking as one of our strongest sales days ever, at <em>15% off</em>. This database used to need 25%. <em>Same buying behaviour, 10 points less discount, on every order.</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MONEY SAVED ============ -->
+  <section id="money-saved">
+    <div class="kicker">02</div>
+    <h2>Money Saved</h2>
+
+    <div class="bento">
+      <div class="tile s5 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span>
+        <h3>&euro;68K A Year In Dead Subscriptions</h3>
+        <p>First weeks in role: pulled the full list from finance, audited line by line, chased orphaned logins, cut everything unused.</p>
+        <div class="cuts">
+          <div class="cut"><span class="name">Mailjet</span><span class="amt">&euro;4,079/mo</span></div>
+          <div class="cut"><span class="name">Adobe team plan (nobody used it)</span><span class="amt">&euro;531/mo</span></div>
+          <div class="cut"><span class="name">InfluencerMarketing.AI</span><span class="amt">$820/mo</span></div>
+          <div class="cut"><span class="name">Runway AI</span><span class="amt">$244/mo</span></div>
+          <div class="cut"><span class="name">Vista Social</span><span class="amt">$127/mo</span></div>
+          <div class="cut"><span class="name">Notion</span><span class="amt">$12/mo</span></div>
+          <div class="cut"><span class="name">Midjourney</span><span class="amt">$10/mo</span></div>
+        </div>
+        <div class="bar-total" style="margin-top:8px;">
+          <span class="t-label">Cut</span>
+          <span class="t-val">~&euro;5,700/mo <small>~&euro;68K annualised</small></span>
+        </div>
+      </div>
+
+      <div class="tile s7 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+        <h3>Breaking The Discount Conditioning</h3>
+        <p>Flagged on record in April: the audience was pattern-trained to wait for the next sale. Pulled back blanket discounting from mid-April and leveraged product features as the offer instead, <strong>protecting base product cost</strong>:</p>
+        <div class="perks">
+          <span class="perk">Express Payout</span>
+          <span class="perk">Swing Account</span>
+          <span class="perk">90% Performance Reward</span>
+          <span class="perk">No Min Trading Days</span>
+        </div>
+        <div class="depth">
+          <div class="d-item old">
+            <div class="d-num">25%</div>
+            <div class="d-label">Old Floor</div>
+            <div class="d-sub">blanket sales</div>
+          </div>
+          <div class="d-arrow"><span class="d-arr">&rarr;</span><span class="d-delta">10 pts shallower</span></div>
+          <div class="d-item now">
+            <div class="d-num">15%</div>
+            <div class="d-label">Now</div>
+            <div class="d-sub">feature-led offers</div>
+          </div>
+        </div>
+        <p style="margin-top:20px;">Sales held. The proof landed on 10 June: <strong>a record-pace sales day at 15% off, where 25% used to be the floor.</strong></p>
+      </div>
+
+      <div class="tile s12 reveal">
+        <div class="strip">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="23" y2="8"/></svg></span>
+          <div>
+            <h3>Headcount Not Replaced</h3>
+            <p>Web developer left. I didn't rehire. Landing pages (Rolex Race, merch store, lead capture) now AI-built in-house and live on marketing.funderpro.com, <strong>faster than before, at zero cost</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUILT, NOT BOUGHT ============ -->
+  <section id="built">
+    <div class="kicker">03</div>
+    <h2>Built, Not Bought</h2>
+
+    <div class="bento">
+      <div class="tile s12 reveal">
+        <div class="bot-grid">
+          <div>
+            <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="15" x2="8" y2="17"/><line x1="16" y1="15" x2="16" y2="17"/></svg></span>
+            <h3>Affiliate Banner Bot, Built At My Own Cost</h3>
+            <p>Telegram bot I personally designed, built and funded. Affiliates self-generate banners with their own code baked in. Promos we decide to extend to affiliates are made available here autonomously, with zero design requests. <strong>This gets used every promo we post here.</strong></p>
+            <div class="bot-stats">
+              <div class="bot-stat"><div class="n">153</div><div class="l">uses in 90 days</div></div>
+              <div class="bot-stat"><div class="n">50+</div><div class="l">active affiliates</div></div>
+            </div>
+          </div>
+          <div class="bot-frame">
+            <img src="bot-analytics.png" alt="Bot analytics dashboard showing 153 total uses, 80.4% success rate and 50 unique users over the last 90 days" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="tile s4 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></span>
+        <h3>WhatsApp</h3>
+        <p>Stood up end to end for abandoned-cart recovery: 71% of conversions land within 24h, abandoners return in a median 1.7h. Attacks exactly that window.</p>
+      </div>
+
+      <div class="tile s4 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+        <h3>MyFXBook</h3>
+        <p>Got us listed, <strong>$7.5K generated</strong>, one of three review pillars.</p>
+      </div>
+
+      <div class="tile s4 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>Discord</h3>
+        <p><strong>3,000+ new members</strong> on a dead server. Poker nights and CODM matches, a format no competitor runs.</p>
+      </div>
+
+      <div class="tile glow s4 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></span>
+        <h3>Reactivation Engine</h3>
+        <p>Continuous tests on the deadest segment we own. <strong>~$8K extracted from a list worth zero</strong>, plus a map of which angles deserve full campaigns.</p>
+      </div>
+
+      <div class="tile s4 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <h3>Social Listening Tool</h3>
+        <p>Built within the team: every brand mention across socials surfaced in one place. <strong>Checked daily by our social media manager</strong>, so we act on mentions in hours, not days.</p>
+      </div>
+
+      <div class="tile s4 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></span>
+        <h3>Vendor Roadmap Influence</h3>
+        <p>Asked StopChurn for customer groups built on engaged viewers: simple, missing, <strong>shipped at my request</strong>. Now a segmentation feature we use daily.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAID MEDIA ============ -->
+  <section id="paid-media">
+    <div class="kicker">04</div>
+    <h2>Paid Media, No Vanity Metrics</h2>
+
+    <div class="bento">
+      <div class="tile s6 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <h3>Found: Branded Keyword Overspend</h3>
+        <p>Budget buying clicks from people already searching FunderPro, traffic we capture anyway. Third-party tracking made it look like performance.</p>
+      </div>
+
+      <div class="tile s6 reveal">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.9" y1="4.9" x2="19.1" y2="19.1"/></svg></span>
+        <h3>Found: Attribution Blind Spot</h3>
+        <p>The previous tracking tool was cut before my tenure. Platform data misses our 3 to 20 day registration-to-purchase window and every repeat purchase.</p>
+      </div>
+
+      <div class="tile s12 reveal">
+        <div class="strip">
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg></span>
+          <div style="flex:1;">
+            <div class="pend-badge">Results Pending</div>
+            <h3>The Fix Is Live: Voluum With Conversion API</h3>
+            <p>First-party tracking now live and collecting. Ownership asked for Hyros-class tracking; Voluum delivers the same picture at a fraction of the price. True blended numbers land inside the 30 to 60 day window.</p>
+            <div class="chips" style="grid-template-columns:repeat(3,1fr);">
+              <div class="chip"><div class="n">$1,500/mo</div><div class="l">vs the Hyros price</div></div>
+              <div class="chip pending"><div class="n">Pending</div><div class="l">true blended ROAS, first read inside 30 to 60 days</div></div>
+              <div class="chip pending"><div class="n">Pending</div><div class="l">true cost per purchase, repeat orders included</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner reveal">
+        <div class="b-label">The Commitment</div>
+        <p>30 to 60 days of spend on first-party data. If ROI is poor, I cut the ad budget myself. Either direction, the call gets made on numbers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team">
+    <div class="kicker">05</div>
+    <h2>Team</h2>
+
+    <div class="bento">
+      <div class="tile s12 reveal">
+        <div class="strip">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <div>
+            <h3>Smaller, Sharper, Cheaper</h3>
+            <p>Identified the strong performers, made the exit calls, restructured the team: <strong>slowly shaping an efficient team of winners</strong>. Output up, payroll down, with briefing systems that ship campaigns without me in every thread.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile s6 reveal">
+        <div class="up-badge">Promoted Into Management</div>
+        <div class="person">
+          <span class="avatar up">A</span>
+          <div class="p-meta"><strong>Alessia</strong><span>Community &amp; Social Media Manager</span></div>
+        </div>
+        <p>Spotted the strength early and kept moving her up. Now in a management role over Discord and social media, a stronger fit than the roles she held. Three roles in five months:</p>
+        <div class="path">
+          <span class="step">Video Animator</span>
+          <span class="arr">&rarr;</span>
+          <span class="step">Designer</span>
+          <span class="arr">&rarr;</span>
+          <span class="step now">Community &amp; Social Media Manager</span>
+        </div>
+      </div>
+
+      <div class="tile s6 reveal">
+        <div class="fail-badge">Exit Call Made</div>
+        <div class="person">
+          <span class="avatar out">H<span class="xmark">&times;</span></span>
+          <div class="p-meta"><strong>Hariz</strong><span>Cut for underperformance</span></div>
+        </div>
+        <p>The hard call made directly, not delayed. Underperformance addressed, payroll freed, and <strong>the bar set where the team that delivers already is</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT I BRING ============ -->
+  <section id="h2">
+    <div class="kicker">06</div>
+    <h2>What I Bring To The Table</h2>
+
+    <div class="editorial reveal">
+      <p class="lede">I'm a technical marketing manager. I've worked in most channels within marketing, and I'm proficient in every discipline that makes up the team: design, SEO, paid media, content writing, email marketing.</p>
+
+      <p>That shows up in practice, not on a CV. When design is short-handed, I generate the assets myself, in line with the brand. When our paid media manager is out, I manage the ads. I run content writing directly. There is no seat on this team I haven't sat in.</p>
+
+      <blockquote class="pull">I've done every job on this team, so I know what good looks like, what it costs, and how long it should take. <em>That's how a tight ship runs.</em></blockquote>
+
+      <p>It's also why the team stays small and the output doesn't. I vibe coded the Telegram affiliate bot the affiliate base now uses daily. Strong results from a lean team isn't an accident, it's the operating model.</p>
+
+      <p>And it doesn't stop at marketing's borders. From next week, as planned, Bruno starts affiliate outreach inside the marketing team, feeding affiliate managers a steady stream of leads. Why? Because he has more time to spare and more to give, and I'm aware of where time goes and how long tasks really take. Empowering the team to do more is part of the job.</p>
+
+      <p>To be clear, none of this is a claim that I can do everything and don't need a team. I need this team, and they deliver. It's a claim about dedication: when a gap opens, I'm the one putting in the late hours to make it happen.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Prepared by Niall Clarke, June 2026</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Count-up on hero numbers, once */
+  var nums = document.querySelectorAll('.num[data-count]');
+  if (!reduced && 'IntersectionObserver' in window && nums.length) {
+    var ran = false;
+    var format = function (v, dec) {
+      return dec > 0 ? v.toFixed(dec) : Math.round(v).toLocaleString('en-US');
+    };
+    var animate = function (el) {
+      var target = parseFloat(el.getAttribute('data-count'));
+      var prefix = el.getAttribute('data-prefix') || '';
+      var suffix = el.getAttribute('data-suffix') || '';
+      var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      var dur = 850;
+      var start = null;
+      var step = function (ts) {
+        if (!start) start = ts;
+        var t = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = prefix + format(target * eased, dec) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var statIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !ran) {
+          ran = true;
+          nums.forEach(animate);
+          statIo.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    statIo.observe(nums[0]);
+  }
+})();
+</script>
+
+</body>
+</html>
